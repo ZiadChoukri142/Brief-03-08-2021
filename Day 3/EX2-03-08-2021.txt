@@ -1,0 +1,15 @@
+SELECT L.NomLog, L.PrixLog FROM Logiciel L INNER JOIN Projet P
+ON L.NumProj=P.NumProj WHERE P.TitreProj="gestion␣de␣stock"
+ORDER BY L.PrixLog DESC
+SELECT SUM(PrixLog) as "cout␣total␣du␣projet" FROM Logiciel WHERE NumPRoj=10 
+SELECT count(*) FROM Developpeur D INNER JOIN Realisation R
+ON D.NumDev=R.NumDev INNER JOIN Projet P ON P.NumProj=R.NumProj 
+SELECT NumProj, TitreProj FROM PRojet P INNER JOIN Logiciel L ON P.NumProj=L.NumProj 
+GROUP BY NumProj, TitreProj 
+HAVING count(*)>5
+SELECT NumDev, NomDev FROM Developpeur D INNER JOIN Realisation R ON D.NumDev=R.NumDev
+GROUP BY NumDev, NomDev
+HAVING count(*)=(SELECT COUNT(*) FROM Projet) 
+SELECT NumProj, TitreProj FROM Projet P INNER JOIN Realisation R ON P.NumProj=R.NumProj
+GROUP BY NumProj, TitreProj
+HAVING count(*)=(SELECT COUNT(*) FROM Developpeur) 
